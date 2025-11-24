@@ -14,15 +14,20 @@ const AboutHero = () => {
   const imageY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
   
   return (
-    <section className="bg-background py-12 sm:py-16 md:py-20">
+    <section 
+      className="py-12 sm:py-16 md:py-20"
+      style={{ 
+        background: 'var(--gradient-sage-radial)',
+      }}
+    >
       <div className="container mx-auto px-3 sm:px-4 lg:px-6">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <ScrollAnimation>
             <div>
-            <h2 className="font-inter text-3xl sm:text-4xl md:text-5xl font-light text-foreground mb-6 leading-tight tracking-tight">
+            <h2 className="font-inter text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6" style={{ letterSpacing: '0.01em', lineHeight: '1.5' }}>
               Healing Buds: Advancing Global Cannabis Innovation
             </h2>
-            <p className="font-inter text-base sm:text-lg text-muted-foreground leading-relaxed font-light">
+            <p className="font-inter text-base sm:text-lg text-white/90 leading-relaxed font-light">
               Committed to excellence in every product we create and championing worldwide cannabis acceptance through quality and integrity.
               </p>
             </div>

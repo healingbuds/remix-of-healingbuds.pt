@@ -202,13 +202,24 @@ const InteractiveMap = ({ selectedCountry, onCountrySelect }: InteractiveMapProp
         el.style.transform = 'scale(0)';
         
         el.addEventListener('mouseenter', () => {
-          el.style.transform = 'scale(1.5)';
-          el.style.boxShadow = `0 0 28px ${colorMap[location.type]}, 0 8px 24px rgba(0,0,0,0.25)`;
+          el.style.transform = 'scale(1.6) translateY(-4px)';
+          el.style.boxShadow = `0 0 40px ${colorMap[location.type]}, 0 12px 32px rgba(0,0,0,0.3)`;
+          el.style.zIndex = '1000';
         });
         
         el.addEventListener('mouseleave', () => {
           el.style.transform = 'scale(1)';
           el.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)';
+          el.style.zIndex = 'auto';
+        });
+        
+        el.addEventListener('click', () => {
+          if (onCountrySelect) {
+            const countryId = Object.keys(countries).find(
+              key => countries[key].name === countryData.name
+            );
+            if (countryId) onCountrySelect(countryId);
+          }
         });
 
         const typeLabels: Record<LocationType, string> = {
