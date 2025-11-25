@@ -77,7 +77,7 @@ const MedicalDevices = () => {
           </section>
 
           {/* Why Choose Our Devices Section */}
-          <section className="py-16 md:py-20 bg-[#0a3d3d]">
+          <section className="py-16 md:py-20" style={{ backgroundColor: 'hsl(var(--section-color))' }}>
             <div className="container mx-auto px-3 sm:px-4 lg:px-6">
               <div className="max-w-4xl mx-auto">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10 md:mb-12">
@@ -292,7 +292,7 @@ const MedicalDevices = () => {
           </section>
 
           {/* Newsletter Section */}
-          <section className="py-16 md:py-20 bg-[#0a3d3d]">
+          <section className="py-16 md:py-20" style={{ backgroundColor: 'hsl(var(--section-color))' }}>
             <div className="container mx-auto px-3 sm:px-4 lg:px-6">
               <div className="max-w-4xl mx-auto">
                 <ScrollAnimation>

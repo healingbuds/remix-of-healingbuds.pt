@@ -29,7 +29,7 @@ const International = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5 pointer-events-none" />
       
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
-        <div className="w-full max-w-7xl mx-auto rounded-3xl p-8 sm:p-10 md:p-12 border border-white/10 backdrop-blur-sm relative overflow-hidden" style={{ backgroundColor: 'hsl(var(--navbar-teal))' }}>
+        <div className="w-full max-w-7xl mx-auto rounded-3xl p-8 sm:p-10 md:p-12 border border-white/10 backdrop-blur-sm relative overflow-hidden" style={{ backgroundColor: 'hsl(var(--section-color))' }}>
           {/* Decorative gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
           <ScrollAnimation>

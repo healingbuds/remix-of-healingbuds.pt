@@ -86,7 +86,7 @@ const CultivatingProcessing = () => {
           </section>
 
           {/* Why Partner With Us Section - Linear style */}
-          <section className="py-20 md:py-32 bg-[#0d4d4d]">
+          <section className="py-20 md:py-32" style={{ backgroundColor: 'hsl(var(--section-color))' }}>
             <div className="container mx-auto px-3 sm:px-4 lg:px-6">
               <div className="max-w-6xl mx-auto">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-16 md:mb-20">
@@ -375,7 +375,7 @@ const CultivatingProcessing = () => {
           </section>
 
           {/* Newsletter Section */}
-          <section className="py-16 md:py-24 bg-[#0d4d4d]">
+          <section className="py-16 md:py-24" style={{ backgroundColor: 'hsl(var(--section-color))' }}>
             <div className="container mx-auto px-3 sm:px-4 lg:px-6">
               <div className="max-w-4xl mx-auto">
                 <ScrollAnimation>
