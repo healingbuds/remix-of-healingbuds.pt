@@ -177,23 +177,23 @@ const Header = ({ onMenuStateChange }: HeaderProps) => {
               onMouseEnter={() => setWhatWeDoOpen(true)}
               onMouseLeave={() => setWhatWeDoOpen(false)}
             >
-              <button 
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setWhatWeDoOpen(!whatWeDoOpen);
-                  setAboutUsOpen(false);
-                }}
-                className={cn(
-                  "font-body flex items-center gap-1 font-medium transition-all duration-300 ease-out relative rounded-md hover:scale-105 whitespace-nowrap cursor-pointer select-none",
-                  scrolled ? "text-[11px] 2xl:text-xs px-1.5 py-1" : "text-[11px] 2xl:text-xs px-2 py-1.5",
-                  isWhatWeDoActive
-                    ? "text-white bg-white/10" 
-                    : "text-white/70 hover:text-white hover:bg-white/5"
-                )}
-              >
-                {t('nav.whatWeDo')}
-                <ChevronDown className={cn("w-3 h-3 xl:w-4 xl:h-4 transition-transform duration-150 pointer-events-none", whatWeDoOpen && "rotate-180")} />
+                <button 
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setWhatWeDoOpen(!whatWeDoOpen);
+                    setAboutUsOpen(false);
+                  }}
+                  className={cn(
+                    "font-body flex items-center gap-1.5 font-semibold transition-all duration-300 ease-out relative rounded-lg hover:scale-105 whitespace-nowrap cursor-pointer select-none",
+                    scrolled ? "text-xs 2xl:text-sm px-3 py-2" : "text-sm 2xl:text-base px-4 py-2.5",
+                    isWhatWeDoActive
+                      ? "text-white bg-white/20" 
+                      : "text-white/90 hover:text-white hover:bg-white/10"
+                  )}
+                >
+                  {t('nav.whatWeDo')}
+                  <ChevronDown className={cn("w-4 h-4 transition-transform duration-150 pointer-events-none", whatWeDoOpen && "rotate-180")} />
               </button>
               
               {/* Dropdown Menu - Linear style */}
@@ -245,11 +245,11 @@ const Header = ({ onMenuStateChange }: HeaderProps) => {
             <Link 
               to="/research" 
               className={cn(
-                "font-body font-medium transition-all duration-300 ease-out rounded-md hover:scale-105 whitespace-nowrap",
-                scrolled ? "text-[11px] 2xl:text-xs px-1.5 py-1" : "text-[11px] 2xl:text-xs px-2 py-1.5",
+                "font-body font-semibold transition-all duration-300 ease-out rounded-lg hover:scale-105 whitespace-nowrap",
+                scrolled ? "text-xs 2xl:text-sm px-3 py-2" : "text-sm 2xl:text-base px-4 py-2.5",
                 isActive("/research") 
-                  ? "text-white bg-white/10" 
-                  : "text-white/70 hover:text-white hover:bg-white/5"
+                  ? "text-white bg-white/20" 
+                  : "text-white/90 hover:text-white hover:bg-white/10"
               )}
             >
               {t('nav.research')}
@@ -257,11 +257,11 @@ const Header = ({ onMenuStateChange }: HeaderProps) => {
             <Link 
               to="/the-wire" 
               className={cn(
-                "font-body font-medium transition-all duration-300 ease-out rounded-md hover:scale-105 whitespace-nowrap",
-                scrolled ? "text-[11px] 2xl:text-xs px-1.5 py-1" : "text-[11px] 2xl:text-xs px-2 py-1.5",
+                "font-body font-semibold transition-all duration-300 ease-out rounded-lg hover:scale-105 whitespace-nowrap",
+                scrolled ? "text-xs 2xl:text-sm px-3 py-2" : "text-sm 2xl:text-base px-4 py-2.5",
                 isActive("/the-wire") || location.pathname.startsWith("/the-wire/")
-                  ? "text-white bg-white/10" 
-                  : "text-white/70 hover:text-white hover:bg-white/5"
+                  ? "text-white bg-white/20" 
+                  : "text-white/90 hover:text-white hover:bg-white/10"
               )}
             >
               {t('nav.theWire')}
@@ -280,15 +280,15 @@ const Header = ({ onMenuStateChange }: HeaderProps) => {
                   setWhatWeDoOpen(false);
                 }}
                 className={cn(
-                  "font-body flex items-center gap-1 font-medium transition-all duration-300 ease-out relative rounded-md hover:scale-105 whitespace-nowrap cursor-pointer select-none",
-                  scrolled ? "text-[11px] 2xl:text-xs px-1.5 py-1" : "text-[11px] 2xl:text-xs px-2 py-1.5",
+                  "font-body flex items-center gap-1.5 font-semibold transition-all duration-300 ease-out relative rounded-lg hover:scale-105 whitespace-nowrap cursor-pointer select-none",
+                  scrolled ? "text-xs 2xl:text-sm px-3 py-2" : "text-sm 2xl:text-base px-4 py-2.5",
                   isAboutUsActive
-                    ? "text-white bg-white/10" 
-                    : "text-white/70 hover:text-white hover:bg-white/5"
+                    ? "text-white bg-white/20" 
+                    : "text-white/90 hover:text-white hover:bg-white/10"
                 )}
               >
                 {t('nav.aboutUs')}
-                <ChevronDown className={cn("w-3 h-3 xl:w-4 xl:h-4 transition-transform duration-150 pointer-events-none", aboutUsOpen && "rotate-180")} />
+                <ChevronDown className={cn("w-4 h-4 transition-transform duration-150 pointer-events-none", aboutUsOpen && "rotate-180")} />
               </button>
               
               {/* Dropdown Menu */}
@@ -324,11 +324,11 @@ const Header = ({ onMenuStateChange }: HeaderProps) => {
             <Link 
               to="/shop" 
               className={cn(
-                "font-body font-medium transition-all duration-300 ease-out rounded-md hover:scale-105 whitespace-nowrap",
-                scrolled ? "text-[11px] 2xl:text-xs px-1.5 py-1" : "text-[11px] 2xl:text-xs px-2 py-1.5",
+                "font-body font-semibold transition-all duration-300 ease-out rounded-lg hover:scale-105 whitespace-nowrap",
+                scrolled ? "text-xs 2xl:text-sm px-3 py-2" : "text-sm 2xl:text-base px-4 py-2.5",
                 isActive("/shop") || location.pathname.startsWith("/shop/")
-                  ? "text-white bg-white/10" 
-                  : "text-white/70 hover:text-white hover:bg-white/5"
+                  ? "text-white bg-white/20" 
+                  : "text-white/90 hover:text-white hover:bg-white/10"
               )}
             >
               {t('nav.shop')}
@@ -336,11 +336,11 @@ const Header = ({ onMenuStateChange }: HeaderProps) => {
             <Link 
               to="/contact" 
               className={cn(
-                "font-body font-medium transition-all duration-300 ease-out rounded-md hover:scale-105 whitespace-nowrap",
-                scrolled ? "text-[11px] 2xl:text-xs px-1.5 py-1" : "text-[11px] 2xl:text-xs px-2 py-1.5",
+                "font-body font-semibold transition-all duration-300 ease-out rounded-lg hover:scale-105 whitespace-nowrap",
+                scrolled ? "text-xs 2xl:text-sm px-3 py-2" : "text-sm 2xl:text-base px-4 py-2.5",
                 isActive("/contact") 
-                  ? "text-white bg-white/10" 
-                  : "text-white/70 hover:text-white hover:bg-white/5"
+                  ? "text-white bg-white/20" 
+                  : "text-white/90 hover:text-white hover:bg-white/10"
               )}
             >
               {t('nav.contactUs')}
@@ -353,49 +353,44 @@ const Header = ({ onMenuStateChange }: HeaderProps) => {
             <ThemeToggle />
 
             {/* Desktop Action Buttons */}
-            <div className="flex items-center gap-1 2xl:gap-1.5 ml-1 flex-shrink-0">
+            <div className="flex items-center gap-2 ml-2 flex-shrink-0">
               <button
                 onClick={() => setEligibilityDialogOpen(true)}
-                  className={cn(
-                    "font-body font-semibold px-2 2xl:px-3 py-1.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl relative z-10 whitespace-nowrap",
-                    "backdrop-blur-2xl bg-gradient-to-br from-white/35 via-white/25 to-white/15",
-                    "dark:from-white/25 dark:via-white/15 dark:to-white/10",
-                    "border border-white/50 shadow-lg hover:border-white/70",
-                    "text-white hover:bg-white/35",
-                    "text-[10px] 2xl:text-xs"
-                  )}
+                className={cn(
+                  "font-body font-bold px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl relative z-10 whitespace-nowrap",
+                  "bg-white/95 text-[#2A3D3A] hover:bg-white",
+                  "border-2 border-white shadow-lg",
+                  "text-xs 2xl:text-sm"
+                )}
               >
-                  <span className="hidden 2xl:inline">{t('nav.checkEligibility')}</span>
-                  <span className="2xl:hidden">Eligibility</span>
+                <span className="hidden 2xl:inline">{t('nav.checkEligibility')}</span>
+                <span className="2xl:hidden">Eligibility</span>
               </button>
               {user ? (
                 <>
                   <Link
                     to="/dashboard"
                     className={cn(
-                      "font-body font-semibold px-2 2xl:px-3 py-1.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl relative z-10 whitespace-nowrap",
-                      "backdrop-blur-2xl bg-gradient-to-br from-primary/40 via-primary/30 to-primary/20",
-                      "border border-primary/50 shadow-lg hover:border-primary/70",
-                      "text-white hover:bg-primary/40 flex items-center gap-1",
-                      "text-[10px] 2xl:text-xs"
+                      "font-body font-bold px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl relative z-10 whitespace-nowrap",
+                      "bg-primary text-white hover:bg-primary/90",
+                      "border-2 border-primary shadow-lg flex items-center gap-1.5",
+                      "text-xs 2xl:text-sm"
                     )}
                   >
-                    <LayoutDashboard className="w-3 h-3" />
+                    <LayoutDashboard className="w-4 h-4" />
                     <span className="hidden 2xl:inline">Patient Portal</span>
                     <span className="2xl:hidden">Portal</span>
                   </Link>
                   <button
                     onClick={handleLogout}
                     className={cn(
-                      "font-body font-semibold px-2 2xl:px-3 py-1.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl relative z-10 whitespace-nowrap",
-                      "backdrop-blur-2xl bg-gradient-to-br from-white/25 via-white/18 to-white/12",
-                      "dark:from-white/20 dark:via-white/12 dark:to-white/8",
-                      "border border-white/40 shadow-lg hover:border-white/60",
-                      "text-white hover:bg-white/30 flex items-center gap-1",
-                      "text-[10px] 2xl:text-xs"
+                      "font-body font-bold px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl relative z-10 whitespace-nowrap",
+                      "bg-transparent text-white hover:bg-white/20",
+                      "border-2 border-white/60 shadow-lg flex items-center gap-1.5",
+                      "text-xs 2xl:text-sm"
                     )}
                   >
-                    <LogOut className="w-3 h-3" />
+                    <LogOut className="w-4 h-4" />
                     <span className="hidden 2xl:inline">{t('nav.signOut')}</span>
                     <span className="2xl:hidden">Out</span>
                   </button>
@@ -403,17 +398,15 @@ const Header = ({ onMenuStateChange }: HeaderProps) => {
               ) : (
                 <Link
                   to="/auth"
-                    className={cn(
-                      "font-body font-semibold px-2 2xl:px-3 py-1.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl relative z-10 whitespace-nowrap",
-                      "backdrop-blur-2xl bg-gradient-to-br from-white/25 via-white/18 to-white/12",
-                      "dark:from-white/20 dark:via-white/12 dark:to-white/8",
-                      "border border-white/40 shadow-lg hover:border-white/60",
-                      "text-white hover:bg-white/30",
-                      "text-[10px] 2xl:text-xs"
-                    )}
+                  className={cn(
+                    "font-body font-bold px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl relative z-10 whitespace-nowrap",
+                    "bg-transparent text-white hover:bg-white/20",
+                    "border-2 border-white/60 shadow-lg",
+                    "text-xs 2xl:text-sm"
+                  )}
                 >
-                    <span className="hidden 2xl:inline">{t('nav.patientLogin')}</span>
-                    <span className="2xl:hidden">Login</span>
+                  <span className="hidden 2xl:inline">{t('nav.patientLogin')}</span>
+                  <span className="2xl:hidden">Login</span>
                 </Link>
               )}
             </div>
