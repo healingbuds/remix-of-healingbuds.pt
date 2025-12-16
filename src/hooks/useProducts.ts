@@ -210,6 +210,17 @@ export function useProducts(countryCode: string = 'PT') {
       } else if (data?.success && data?.data?.strains?.length > 0) {
         // Transform API response to our Product interface
         const transformedProducts: Product[] = data.data.strains.map((strain: any) => {
+          // Debug log to check raw API data
+          console.log('Raw strain data:', strain.name, {
+            thc: strain.thc,
+            thcContent: strain.thcContent,
+            cbd: strain.cbd,
+            cbdContent: strain.cbdContent,
+            retailPrice: strain.retailPrice,
+            price: strain.price,
+            pricePerGram: strain.pricePerGram,
+          });
+
           // Build full image URL - API returns just filename, prepend S3 base
           let imageUrl = '/placeholder.svg';
           if (strain.imageUrl) {
@@ -226,28 +237,59 @@ export function useProducts(countryCode: string = 'PT') {
           let effects: string[] = [];
           if (Array.isArray(strain.effects)) {
             effects = strain.effects;
-          } else if (strain.feelings) {
+          } else if (Array.isArray(strain.feelings)) {
+            effects = strain.feelings;
+          } else if (typeof strain.feelings === 'string') {
             effects = strain.feelings.split(',').map((s: string) => s.trim());
+          }
+
+          // Parse terpenes/flavors
+          let terpenes: string[] = [];
+          if (Array.isArray(strain.flavour)) {
+            terpenes = strain.flavour;
+          } else if (typeof strain.flavour === 'string') {
+            terpenes = strain.flavour.split(',').map((s: string) => s.trim());
+          } else if (Array.isArray(strain.terpenes)) {
+            terpenes = strain.terpenes;
           }
 
           // Check availability from strainLocations
           const location = strain.strainLocations?.[0];
-          const isAvailable = location?.isAvailable ?? strain.availability ?? true;
-          const stock = location?.stockQuantity ?? strain.stock ?? 0;
+          const isAvailable = location?.isAvailable ?? strain.availability ?? strain.isAvailable ?? true;
+          const stock = location?.stockQuantity ?? strain.stock ?? strain.stockQuantity ?? 100;
+
+          // Get price - try multiple possible fields
+          const retailPrice = 
+            parseFloat(strain.retailPrice) || 
+            parseFloat(strain.pricePerGram) || 
+            parseFloat(strain.price) || 
+            parseFloat(location?.retailPrice) ||
+            0;
+
+          // Get THC/CBD - try multiple field names
+          const thcContent = 
+            parseFloat(strain.thc) || 
+            parseFloat(strain.thcContent) || 
+            parseFloat(strain.THC) ||
+            0;
+          const cbdContent = 
+            parseFloat(strain.cbd) || 
+            parseFloat(strain.cbdContent) || 
+            parseFloat(strain.CBD) ||
+            0;
 
           return {
             id: strain.id || strain._id,
             name: strain.name,
             description: strain.description || '',
-            // Ensure proper number parsing - API returns thc/cbd as numbers, not thcContent
-            thcContent: parseFloat(strain.thc) || parseFloat(strain.thcContent) || 0,
-            cbdContent: parseFloat(strain.cbd) || parseFloat(strain.cbdContent) || 0,
-            retailPrice: parseFloat(strain.retailPrice) || parseFloat(strain.price) || 0,
+            thcContent,
+            cbdContent,
+            retailPrice,
             availability: isAvailable,
             stock: stock,
             imageUrl,
             effects,
-            terpenes: strain.flavour ? strain.flavour.split(',').map((s: string) => s.trim()) : (strain.terpenes || []),
+            terpenes,
             category: strain.category || strain.type || 'Hybrid',
             dataSource: 'api' as DataSource,
           };
