@@ -1,4 +1,8 @@
-import plantLineArt from "@/assets/plant-line-art.png";
+import plantDecoration1 from "@/assets/plant-decoration-1.png";
+import plantDecoration2 from "@/assets/plant-decoration-2.png";
+import plantDecoration3 from "@/assets/plant-decoration-3.png";
+import plantDecoration4 from "@/assets/plant-decoration-4.png";
+import plantDecoration5 from "@/assets/plant-decoration-5.png";
 import { motion } from "framer-motion";
 
 // Custom SVG icons matching the reference design (line-art style)
@@ -113,79 +117,41 @@ const cardVariants = {
   },
 };
 
+// Scattered leaf decoration data
+const leafDecorations = [
+  { src: plantDecoration1, className: "absolute -top-8 -left-8 w-32 md:w-48 opacity-[0.08] dark:opacity-[0.12] rotate-[-25deg]" },
+  { src: plantDecoration2, className: "absolute top-20 -right-12 w-28 md:w-40 opacity-[0.06] dark:opacity-[0.10] rotate-[15deg]" },
+  { src: plantDecoration3, className: "absolute -bottom-12 left-1/4 w-36 md:w-52 opacity-[0.07] dark:opacity-[0.11] rotate-[8deg]" },
+  { src: plantDecoration4, className: "absolute bottom-32 -right-8 w-24 md:w-36 opacity-[0.05] dark:opacity-[0.09] rotate-[-12deg] scale-x-[-1]" },
+  { src: plantDecoration5, className: "absolute -bottom-16 -left-16 w-40 md:w-56 opacity-[0.09] dark:opacity-[0.14] rotate-[20deg]" },
+  { src: plantDecoration1, className: "absolute top-1/2 -left-20 w-32 md:w-44 opacity-[0.05] dark:opacity-[0.08] rotate-[35deg] scale-x-[-1]" },
+  { src: plantDecoration3, className: "absolute -bottom-8 -right-16 w-44 md:w-64 opacity-[0.08] dark:opacity-[0.12] rotate-[-5deg]" },
+];
+
 const ValueProps = () => {
   return (
     <div className="px-2">
       <motion.section 
-        className="py-20 sm:py-24 md:py-28 rounded-2xl sm:rounded-3xl relative overflow-hidden"
-        style={{ backgroundColor: 'hsl(var(--section-color))' }}
+        className="py-20 sm:py-24 md:py-28 rounded-2xl sm:rounded-3xl relative overflow-hidden bg-[hsl(178_48%_21%)] dark:bg-[hsl(175_35%_18%)]"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
         variants={containerVariants}
       >
-        {/* Left cannabis leaf motif */}
-        <motion.div 
-          className="absolute -bottom-16 -left-16 pointer-events-none select-none"
-          style={{
-            width: '40%',
-            maxWidth: '380px',
-            minWidth: '220px',
-          }}
-          initial={{ opacity: 0, scale: 0.85, x: -20 }}
-          whileInView={{ opacity: 1, scale: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
-        >
-          <div 
-            className="relative w-full h-full"
-            style={{
-              maskImage: 'linear-gradient(45deg, black 0%, rgba(0,0,0,0.6) 40%, transparent 70%)',
-              WebkitMaskImage: 'linear-gradient(45deg, black 0%, rgba(0,0,0,0.6) 40%, transparent 70%)',
-            }}
-          >
-            <img 
-              src={plantLineArt} 
-              alt="" 
-              className="w-full h-auto opacity-[0.12]"
-              style={{
-                filter: 'brightness(1.1) contrast(0.9)',
-                transform: 'scaleX(-1) rotate(15deg)',
-              }}
-            />
-          </div>
-        </motion.div>
-
-        {/* Right cannabis leaf motif */}
-        <motion.div 
-          className="absolute -bottom-12 -right-12 sm:-bottom-16 sm:-right-16 pointer-events-none select-none"
-          style={{
-            width: '45%',
-            maxWidth: '420px',
-            minWidth: '280px',
-          }}
-          initial={{ opacity: 0, scale: 0.85, x: 20 }}
-          whileInView={{ opacity: 1, scale: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-        >
-          <div 
-            className="relative w-full h-full"
-            style={{
-              maskImage: 'linear-gradient(135deg, transparent 0%, transparent 15%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 70%, black 100%)',
-              WebkitMaskImage: 'linear-gradient(135deg, transparent 0%, transparent 15%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 70%, black 100%)',
-            }}
-          >
-            <img 
-              src={plantLineArt} 
-              alt="" 
-              className="w-full h-auto opacity-[0.12]"
-              style={{
-                filter: 'brightness(1.1) contrast(0.9)',
-              }}
-            />
-          </div>
-        </motion.div>
+        {/* Scattered cannabis leaf decorations */}
+        {leafDecorations.map((leaf, index) => (
+          <motion.img
+            key={index}
+            src={leaf.src}
+            alt=""
+            className={`${leaf.className} pointer-events-none select-none`}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.1 * index, ease: "easeOut" }}
+            aria-hidden="true"
+          />
+        ))}
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div className="text-center mb-16 sm:mb-20" variants={headerVariants}>
