@@ -1,5 +1,4 @@
 import plantDecoration1 from "@/assets/plant-decoration-1.png";
-import plantDecoration3 from "@/assets/plant-decoration-3.png";
 import { motion } from "framer-motion";
 
 // Custom SVG icons matching the reference design (line-art style)
@@ -114,10 +113,9 @@ const cardVariants = {
   },
 };
 
-// Subtle scattered leaf decorations - barely visible quality touch (2-3 only)
+// Subtle leaf decoration - bottom right only
 const leafDecorations = [
-  { src: plantDecoration1, className: "absolute bottom-4 right-12 w-28 md:w-36 opacity-[0.03] dark:opacity-[0.025] rotate-12" },
-  { src: plantDecoration3, className: "absolute top-8 left-8 w-20 md:w-28 opacity-[0.025] dark:opacity-[0.02] -rotate-12" },
+  { src: plantDecoration1, className: "absolute -bottom-8 -right-8 w-48 md:w-64 opacity-10 dark:opacity-10 rotate-12" },
 ];
 
 const ValueProps = () => {
