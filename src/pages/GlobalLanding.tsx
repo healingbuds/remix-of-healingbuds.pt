@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Globe, Shield, Leaf } from "lucide-react";
+import { ArrowRight, Globe, Shield, Leaf, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import hbLogoWhite from "@/assets/hb-logo-white-new.png";
@@ -111,27 +112,43 @@ export default function GlobalLanding() {
                     )}
                     <span className="text-5xl mb-4 block">{region.flag}</span>
                     <h3 className="text-xl font-semibold text-white mb-4">{region.name}</h3>
-                    {region.status === "live" ? (
+                    <div className="flex flex-col gap-2">
+                      {/* Preview Button - always visible */}
                       <Button 
                         variant="outline" 
-                        className={`w-full group ${
-                          isSelected 
-                            ? "bg-primary text-primary-foreground border-primary hover:bg-primary/90" 
-                            : "border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground"
-                        }`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open(region.url, "_blank");
-                        }}
+                        className="w-full group border-white/20 text-white/80 hover:bg-white/10 hover:text-white"
+                        asChild
+                        onClick={(e) => e.stopPropagation()}
                       >
-                        Visit Site 
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <Link to={`/preview/${region.code}`}>
+                          <Eye className="mr-2 w-4 h-4" />
+                          Preview
+                        </Link>
                       </Button>
-                    ) : (
-                      <span className="inline-block px-4 py-2 text-sm text-white/50 bg-white/5 rounded-full">
-                        Coming Soon
-                      </span>
-                    )}
+                      
+                      {/* Visit Site Button - only for live regions */}
+                      {region.status === "live" ? (
+                        <Button 
+                          variant="outline" 
+                          className={`w-full group ${
+                            isSelected 
+                              ? "bg-primary text-primary-foreground border-primary hover:bg-primary/90" 
+                              : "border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground"
+                          }`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(region.url, "_blank");
+                          }}
+                        >
+                          Visit Site 
+                          <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      ) : (
+                        <span className="inline-block px-4 py-2 text-sm text-white/50 bg-white/5 rounded-full text-center">
+                          Coming Soon
+                        </span>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>

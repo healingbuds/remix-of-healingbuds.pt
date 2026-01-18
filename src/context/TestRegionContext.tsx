@@ -27,6 +27,7 @@ interface TestRegionContextType {
   isTestMode: boolean;
   testRegionOptions: RegionOption[];
   currentOption: RegionOption;
+  getPreviewUrl: (code: TestRegion) => string;
 }
 
 const TestRegionContext = createContext<TestRegionContextType | undefined>(undefined);
@@ -56,6 +57,8 @@ export const TestRegionProvider = ({ children }: { children: ReactNode }) => {
 
   const currentOption = testRegionOptions.find(r => r.code === selectedRegion) || testRegionOptions[0];
 
+  const getPreviewUrl = (code: TestRegion) => `/preview/${code.toLowerCase()}`;
+
   const value = {
     selectedRegion,
     setRegion,
@@ -63,6 +66,7 @@ export const TestRegionProvider = ({ children }: { children: ReactNode }) => {
     isTestMode,
     testRegionOptions,
     currentOption,
+    getPreviewUrl,
   };
 
   return (
