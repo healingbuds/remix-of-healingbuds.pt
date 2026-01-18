@@ -56,16 +56,17 @@ const NavigationOverlay = ({
     }
   }, [isOpen]);
 
-  // Lock body scroll when overlay is open - comprehensive iOS support
+  // Lock body scroll when overlay is open - iOS-safe without disabling taps
   useEffect(() => {
     const scrollY = window.scrollY;
+
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
       document.body.style.width = '100%';
       document.body.style.height = '100%';
       document.body.style.top = `-${scrollY}px`;
-      document.body.style.touchAction = 'none';
+      // IMPORTANT: do NOT set body touch-action to none, it can block taps on mobile
       document.documentElement.style.overflow = 'hidden';
     } else {
       const savedScrollY = document.body.style.top;
@@ -74,19 +75,19 @@ const NavigationOverlay = ({
       document.body.style.width = '';
       document.body.style.height = '';
       document.body.style.top = '';
-      document.body.style.touchAction = '';
       document.documentElement.style.overflow = '';
+
       if (savedScrollY) {
         window.scrollTo(0, parseInt(savedScrollY || '0') * -1);
       }
     }
+
     return () => {
       document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.width = '';
       document.body.style.height = '';
       document.body.style.top = '';
-      document.body.style.touchAction = '';
       document.documentElement.style.overflow = '';
     };
   }, [isOpen]);
@@ -123,7 +124,10 @@ const NavigationOverlay = ({
             transition={{ duration: 0.15 }}
             className="xl:hidden fixed inset-0 z-[9998]"
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.98)' }}
-            onClick={onClose}
+            onPointerDown={(e) => {
+              e.preventDefault();
+              onClose();
+            }}
             aria-hidden="true"
           />
           
@@ -169,18 +173,23 @@ const NavigationOverlay = ({
                   className="h-12 min-w-[120px] w-auto object-contain"
                 />
               </Link>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  onClose();
-                }}
-                className="p-2.5 rounded-lg bg-white/10 hover:bg-white/20 active:bg-white/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 relative z-10 touch-manipulation"
-                aria-label="Close menu"
-              >
-                <X className="w-6 h-6 text-white pointer-events-none" />
-              </button>
+            <button
+              type="button"
+              onPointerDown={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onClose();
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onClose();
+              }}
+              className="p-2.5 rounded-lg bg-white/10 hover:bg-white/20 active:bg-white/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 relative z-10 touch-manipulation"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6 text-white pointer-events-none" />
+            </button>
             </div>
             
             {/* Scrollable menu content */}
