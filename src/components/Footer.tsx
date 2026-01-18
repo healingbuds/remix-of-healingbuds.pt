@@ -86,8 +86,8 @@ const Footer = () => {
                 </h4>
                 <ul className="space-y-3">
                   <li>
-                    <Link to="/contact" className="font-body text-sm text-white/60 hover:text-white transition-colors inline-block hover:translate-x-1 transform duration-200">
-                      {t('footer.patientAccess')}
+                    <Link to="/dispensaries" className="font-body text-sm text-white/60 hover:text-white transition-colors inline-block hover:translate-x-1 transform duration-200">
+                      {t('footer.dispensaries')}
                     </Link>
                   </li>
                   <li>
