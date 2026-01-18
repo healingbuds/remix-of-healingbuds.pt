@@ -38,6 +38,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const FranchiseOpportunities = lazy(() => import("./pages/FranchiseOpportunities"));
 const Dispensaries = lazy(() => import("./pages/Dispensaries"));
 const GlobalLanding = lazy(() => import("./pages/GlobalLanding"));
+const DesignSystem = lazy(() => import("./pages/DesignSystem"));
 const queryClient = new QueryClient();
 
 const AnimatedRoutes = () => {
@@ -66,6 +67,7 @@ const AnimatedRoutes = () => {
           <Route path="/dispensaries" element={<Dispensaries />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/design-system" element={<DesignSystem />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
