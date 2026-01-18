@@ -36,7 +36,7 @@ const BackToTop = () => {
           }}
           onClick={scrollToTop}
           className={cn(
-            "fixed bottom-28 md:bottom-24 lg:bottom-28 xl:bottom-32 right-4 md:right-6 lg:right-8 z-50",
+            "fixed bottom-32 md:bottom-28 lg:bottom-32 xl:bottom-36 right-4 md:right-6 lg:right-8 z-50",
             "w-12 h-12 md:w-14 md:h-14 rounded-full",
             "bg-gradient-to-br from-primary via-primary/90 to-primary/70",
             "text-white shadow-xl",
