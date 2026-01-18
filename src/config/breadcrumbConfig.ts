@@ -21,6 +21,7 @@ export const breadcrumbConfig: Record<string, BreadcrumbConfigItem> = {
   '/franchise-opportunities': { label: 'footer.franchiseOpportunities' },
   '/privacy-policy': { label: 'footer.privacyPolicy' },
   '/terms-of-service': { label: 'footer.termsOfService' },
+  '/dispensaries': { label: 'footer.dispensaries' },
 };
 
 // Helper function to build breadcrumb trail from current path

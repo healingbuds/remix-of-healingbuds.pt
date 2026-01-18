@@ -35,6 +35,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const FranchiseOpportunities = lazy(() => import("./pages/FranchiseOpportunities"));
+const Dispensaries = lazy(() => import("./pages/Dispensaries"));
 const queryClient = new QueryClient();
 
 const AnimatedRoutes = () => {
@@ -60,6 +61,7 @@ const AnimatedRoutes = () => {
           <Route path="/the-wire/:articleId" element={<NewsArticle />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/franchise-opportunities" element={<FranchiseOpportunities />} />
+          <Route path="/dispensaries" element={<Dispensaries />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
