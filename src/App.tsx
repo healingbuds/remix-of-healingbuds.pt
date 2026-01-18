@@ -36,6 +36,7 @@ const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const FranchiseOpportunities = lazy(() => import("./pages/FranchiseOpportunities"));
 const Dispensaries = lazy(() => import("./pages/Dispensaries"));
+const GlobalLanding = lazy(() => import("./pages/GlobalLanding"));
 const queryClient = new QueryClient();
 
 const AnimatedRoutes = () => {
@@ -45,8 +46,8 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait" initial={false}>
       <Suspense fallback={<PageLoadingSkeleton variant="hero" />}>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Index />} />
-          
+          <Route path="/" element={<GlobalLanding />} />
+          <Route path="/home" element={<Index />} />
           <Route path="/what-we-do" element={<WhatWeDo />} />
           <Route path="/cultivating-processing" element={<CultivatingProcessing />} />
           <Route path="/manufacture-distribution" element={<ManufactureDistribution />} />
