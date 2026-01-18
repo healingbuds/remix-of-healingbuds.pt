@@ -412,7 +412,7 @@ const NavigationOverlay = ({
                     "flex items-center justify-center"
                   )}
                 >
-                  {t('nav.contact')}
+                  {t('nav.contactUs')}
                 </Link>
               </div>
 

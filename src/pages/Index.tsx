@@ -4,6 +4,7 @@ import AboutHero from "@/components/AboutHero";
 import ValueProps from "@/components/ValueProps";
 import Cultivation from "@/components/Cultivation";
 import AnimatedStatistics from "@/components/AnimatedStatistics";
+import FranchiseCTA from "@/components/FranchiseCTA";
 import News from "@/components/News";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
@@ -47,6 +48,7 @@ const Index = () => {
           <ValueProps />
           <AnimatedStatistics />
           <Cultivation />
+          <FranchiseCTA />
           <News />
         </main>
         <Footer />

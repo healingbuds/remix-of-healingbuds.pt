@@ -43,5 +43,14 @@
     "compliance": "Compliance",
     "copyright": "© {{year}} Healing Buds Global. All rights reserved.",
     "commitment": "Committed to advancing global cannabis medicine"
+  },
+  "franchiseCTA": {
+    "badge": "B2B Partnership Opportunity",
+    "headline": "Join the Medical Cannabis Revolution",
+    "subheadline": "Partner with an EU GMP-certified leader to bring pharmaceutical-grade medical cannabis to your market.",
+    "feature1": "Turnkey Operations",
+    "feature2": "Global Expertise",
+    "feature3": "Regulatory Support",
+    "cta": "Explore Franchise Opportunities"
   }
 }
